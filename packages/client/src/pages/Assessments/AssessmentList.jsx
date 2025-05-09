@@ -20,7 +20,7 @@ export const AssessmentList = () => {
     fetchAssessments();
   }, []);
 
-  // table columns
+  //  define table columns
   const columns = useMemo(
     () => [
       { Header: `ID`, accessor: `id` },
