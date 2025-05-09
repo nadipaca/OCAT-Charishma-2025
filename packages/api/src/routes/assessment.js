@@ -10,6 +10,7 @@ assessmentRouter.post(
   async (req, res, next) => {
     try {
       const { assessment } = req.body;
+      await AssessmentService.submit(assessment);
 
       // verify that your data is making it here to the API by using console.log(assessment);
       // call the AssessmentService.submit function from packages/api/src/microservices/Assessment-Service.js and
@@ -32,7 +33,7 @@ assessmentRouter.get(
     try {
       // verify that your data is making it here to the API by using console.log();
       // call the AssessmentService.getList function from packages/api/src/microservices/Assessment-Service.js
-      const assessments = [];
+      const assessments = await AssessmentService.getList();
 
       ResponseHandler(
         res,
